@@ -3,7 +3,7 @@ bl_info = {
     "author": "Nesvarbu",
     "version": (0, 0, 1),
     "blender": (2, 80, 0),
-    "location": "World Properties > Components",
+    "location": "3D View > Toolbox",
     "warning": "",
     "description": "",
     "wiki_url": "http://wiki.digidone3d.com/index.php/Main_Page",
@@ -402,12 +402,12 @@ class OBJECT_OT_parcomp_component_unassignparam(bpy.types.Operator):
         return {'FINISHED'}
 
 
-class WORLD_PT_parcomp_components(bpy.types.Panel):
-    bl_idname = "WORLD_PT_parcomp_components"
+class VIEW3D_PT_parcomp_components(bpy.types.Panel):
+    bl_idname = "VIEW3D_PT_parcomp_components"
     bl_label = "Components"
-    bl_space_type = 'PROPERTIES'
-    bl_region_type = 'WINDOW'
-    bl_context = "world"
+    bl_category = "Components"
+    bl_space_type = 'VIEW_3D'
+    bl_region_type = 'UI'
 
     #@classmethod
     #def poll(cls, context):
@@ -613,7 +613,7 @@ def register():
     bpy.utils.register_class(OBJECT_OT_parcomp_component_editparam)
     bpy.utils.register_class(OBJECT_OT_parcomp_component_assignparam)
     bpy.utils.register_class(OBJECT_OT_parcomp_component_unassignparam)
-    bpy.utils.register_class(WORLD_PT_parcomp_components)
+    bpy.utils.register_class(VIEW3D_PT_parcomp_components)
     bpy.utils.register_class(VIEW3D_OT_parcomp_component_select)
     bpy.types.World.parcomp_components = bpy.props.CollectionProperty(type=parcomp_Component)
     bpy.types.World.parcomp_nextcompnum = bpy.props.IntProperty(name='Next Component Number')
@@ -653,7 +653,7 @@ def unregister():
     bpy.utils.unregister_class(OBJECT_OT_parcomp_component_editparam)
     bpy.utils.unregister_class(OBJECT_OT_parcomp_component_assignparam)
     bpy.utils.unregister_class(OBJECT_OT_parcomp_component_unassignparam)
-    bpy.utils.unregister_class(WORLD_PT_parcomp_components)
+    bpy.utils.unregister_class(VIEW3D_PT_parcomp_components)
     bpy.utils.unregister_class(VIEW3D_OT_parcomp_component_select)
 
 
