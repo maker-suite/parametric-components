@@ -11,6 +11,7 @@ class OBJECT_OT_parcomp_component_create(bpy.types.Operator):
         actobj = context.active_object
         bpy.ops.object.empty_add(
             type='PLAIN_AXES',
+            align='WORLD',
             location=tuple(actobj.location),
             rotation=(0, 0, 0),
         )

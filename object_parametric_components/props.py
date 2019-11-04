@@ -126,7 +126,7 @@ def parcomp_comp_name_select(self, context):
         children.append(obj)
     bpy.ops.object.empty_add(
         type='PLAIN_AXES',
-        view_align=False,
+        align='WORLD',
         location=tuple(children[-1].location),
         rotation=(0, 0, 0),
         #layers=current_layers,
